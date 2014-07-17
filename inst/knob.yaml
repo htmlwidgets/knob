@@ -1,0 +1,9 @@
+dependencies:
+  - name: jquery
+    version: 2.1.1
+    src: "lib/jquery/dist"
+    script: jquery.min.js
+  - name: knob
+    version: 1.0.1
+    src: "lib/knob/dist"
+    script: jquery.knob.min.js
