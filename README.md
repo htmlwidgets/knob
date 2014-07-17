@@ -45,7 +45,8 @@ server = function(input, output, session){
     min = 0,
     value = input$value,
     angleArc = input$angleArc,
-    max = 200
+    max = 200,
+    fgColor="#66CC66"
   ))
 }
 
