@@ -8,7 +8,7 @@ knob <- function(title, value, min, max, width = NULL, height = NULL, ...){
 }
 
 #' @export
-widget_div.knob <- function(x, id, style, class){
+widget_html.knob <- function(x, id, style, class){
   tags$input(type = "text", class = class, id = id)
 }
 
