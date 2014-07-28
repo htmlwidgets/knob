@@ -1,5 +1,6 @@
 HTMLWidgets.widget({
   name: "knob",
+  type: "output",
   initialize: function(el) {
     $(el).knob();
   },
