@@ -2,6 +2,6 @@
 
 export(knob)
 export(knobOutput)
-export(widget_div.knob)
+export(widget_html.knob)
 import(htmltools)
 import(htmlwidgets)
