@@ -4,15 +4,20 @@ knob <- function(title, value, min, max, width = NULL, height = NULL, ...){
     width = width, height = height, ...               
   )
   params = Filter(Negate(is.null), params)
-  structure(params, class = c('knob', 'htmlwidget'))
+  htmlwidgets::createWidget('knob', params,
+    sizingPolicy = htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)          
+  )
 }
 
 #' @export
-widget_html.knob <- function(x, id, style, class){
+knob_html <- function(id, style, class, ...){
   tags$input(type = "text", class = class, id = id)
 }
 
 #' @export
-knobOutput <- htmlwidgets::widgetOutput('knob')
+knobOutput <- htmlwidgets::makeShinyOutput('knob')
+
+#' @export
+renderKnob <- htmlwidgets::makeShinyRender(knobOutput)
 
 

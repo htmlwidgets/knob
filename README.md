@@ -9,7 +9,7 @@ You can install it from `github`.
 ```r
 library(devtools)
 install_github('rstudio/htmltools')
-install_github('ramnathv/htmlwidgets')
+install_github('ramnathv/htmlwidgets', ref = 'refactor/remove-s3-methods')
 install_github('ramnathv/knob')
 ```
 
@@ -40,7 +40,7 @@ ui = bootstrapPage(
   knobOutput('live_gauge', width = 250, height = 200)
 )
 server = function(input, output, session){
-  output$live_gauge <- renderWidget(list(
+  output$live_gauge <- renderKnob(knob(
     title = 'My Gauge',
     min = 0,
     value = input$value,

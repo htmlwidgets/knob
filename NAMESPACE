@@ -2,6 +2,7 @@
 
 export(knob)
 export(knobOutput)
-export(widget_html.knob)
+export(knob_html)
+export(renderKnob)
 import(htmltools)
 import(htmlwidgets)
