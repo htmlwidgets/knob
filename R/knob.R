@@ -15,9 +15,12 @@ knob_html <- function(id, style, class, ...){
 }
 
 #' @export
-knobOutput <- htmlwidgets::makeShinyOutput('knob')
+knobOutput <- function(outputId, width = "100%", height = "500px") {
+  shinyWidgetOutput(outputId, "knob", width, height, package = "knob")
+}
 
 #' @export
-renderKnob <- htmlwidgets::makeShinyRender(knobOutput)
-
-
+renderKnob <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  shinyRenderWidget(expr, knobOutput, env, quoted = TRUE)
+}
