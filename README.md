@@ -31,7 +31,6 @@ We can also use it in a Shiny application.
 
 ```r
 library(shiny)
-library(htmlwidgets)
 library(knob)
 ui = bootstrapPage(
   tags$style('body{margin-left:40px; margin-top:40px;}'),
