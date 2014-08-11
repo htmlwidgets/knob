@@ -1,7 +1,7 @@
 Package: knob
 Type: Package
 Title: jquery Knob HTML Widget for R
-Version: 1.0
+Version: 0.2
 Date: 2014-07-17
 Author: Ramnath Vaidyanathan
 Maintainer: Ramnath Vaidyanathan <ramnath.vaidya@gmail.com>
