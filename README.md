@@ -9,7 +9,7 @@ You can install it from `github`.
 ```r
 library(devtools)
 install_github('rstudio/htmltools')
-install_github('ramnathv/htmlwidgets', ref = 'refactor/remove-s3-methods')
+install_github('ramnathv/htmlwidgets')
 install_github('ramnathv/knob')
 ```
 
@@ -19,10 +19,9 @@ Let us first create a simple knob.
 
 ```r
 library(knob)
-k1 = knob('Test', 20, 0, 100, angleArc = 250, angleOffset = -125, 
-  fgColor = "#66CC66"
-)
-k1
+knob(min = 0, max = 100, value = 20, 
+     angleArc = 250, angleOffset = -125, 
+     fgColor = "#66CC66")
 ```
 
 ![knob1](http://i.imgur.com/2wekMlK.png)
@@ -32,24 +31,24 @@ We can also use it in a Shiny application.
 ```r
 library(shiny)
 library(knob)
-ui = bootstrapPage(
-  tags$style('body{margin-left:40px; margin-top:40px;}'),
+
+ui = shinyUI(fluidPage(
   sliderInput('value', 'Value', 0, 200, 50),
   sliderInput('angleArc', 'Arc Angle', 0, 360, 250),
-  knobOutput('live_gauge', width = 250, height = 200)
-)
-server = function(input, output, session){
-  output$live_gauge <- renderKnob(knob(
-    title = 'My Gauge',
+  knobOutput('gauge')
+))
+
+server = function(input, output){
+  output$gauge <- renderKnob(knob(
     min = 0,
+    max = 200,
     value = input$value,
     angleArc = input$angleArc,
-    max = 200,
     fgColor="#66CC66"
   ))
 }
 
-runApp(list(ui = ui, server = server))
+shinyApp(ui = ui, server = server)
 ```
 
 ![knob2](http://i.imgur.com/f9p07hI.png)
