@@ -19,7 +19,7 @@ Let us first create a simple knob.
 
 ```r
 library(knob)
-knob(min = 0, max = 100, value = 20, 
+knob(value = 20, min = 0, max = 100, 
      angleArc = 250, angleOffset = -125, 
      fgColor = "#66CC66")
 ```
@@ -40,9 +40,9 @@ ui = shinyUI(fluidPage(
 
 server = function(input, output){
   output$gauge <- renderKnob(knob(
+    value = input$value,
     min = 0,
     max = 200,
-    value = input$value,
     angleArc = input$angleArc,
     fgColor="#66CC66"
   ))

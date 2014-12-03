@@ -1,14 +1,14 @@
 #' @export
-knob <- function(min, max, value, step = 1, 
+knob <- function(value, min, max, step = 1, 
                  angleOffset = 0, angleArc = 360,
                  font = NULL, fgColor = NULL, bgColor = NULL,
                  width = NULL, height = NULL) {
   
   # create a list containing the options uses to configure the knob
   x <- list()
+  x$value <- value
   x$min <- min
   x$max <- max
-  x$value <- value
   x$step <- step
   x$angleOffset <- angleOffset
   x$angleArc <- angleArc
