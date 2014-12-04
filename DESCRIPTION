@@ -3,7 +3,7 @@ Type: Package
 Title: jquery Knob HTML Widget for R
 Version: 0.2
 Date: 2014-07-17
-Author: Ramnath Vaidyanathan
+Author: Ramnath Vaidyanathan and JJ Allaire
 Maintainer: Ramnath Vaidyanathan <ramnath.vaidya@gmail.com>
 Description: jquery Knob HTML Widget for R
 License: MIT
