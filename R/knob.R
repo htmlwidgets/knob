@@ -30,10 +30,3 @@ renderKnob <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, knobOutput, env, quoted = TRUE)
 }
-
-
-# helper function to ensure we are enclosed in an input element
-# rather than the default div element
-knob_html <- function(id, style, class, ...){
-  htmltools::tags$input(type = "text", class = class, id = id)
-}

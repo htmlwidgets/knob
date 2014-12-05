@@ -12,25 +12,24 @@ HTMLWidgets.widget({
     // readOnly since this is a display widget
     options.readOnly = true;
     
+    var $input = $("<input type='text'>");
+    $(el).append($input);
+    
     // initialize the knob
-    $(el).knob(options);
+    $input.knob(options);
   },
 
   renderValue: function(el, x) {
-    
-    // forward options to the knob
-    $(el).trigger("configure", x);
-    
-    // set the knob value and trigger a change event
-    $(el).val(x.value).trigger("change");
-    
+    $(el).find("input")
+      .trigger("configure", x)  // forward options to the knob
+      .val(x.value)             // set the knob value
+      .trigger("change");       // alert the knob to its new value
   },
 
   resize: function(el, width, height) { 
-    
     // size the knob as dictated by the enclosing widget's size
-    $(el).trigger("configure", this.toSquare(width, height));
-  
+    $(el).find("input")
+      .trigger("configure", this.toSquare(width, height));
   },
   
   // knob relies on being rendered with equal width
