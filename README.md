@@ -10,7 +10,7 @@ You can install it from `github`.
 library(devtools)
 install_github('rstudio/htmltools')
 install_github('ramnathv/htmlwidgets')
-install_github('ramnathv/knob')
+install_github('htmlwidgets/knob')
 ```
 
 ### Usage
