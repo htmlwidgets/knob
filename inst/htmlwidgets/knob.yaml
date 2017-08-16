@@ -5,5 +5,5 @@ dependencies:
     script: jquery.min.js
   - name: knob
     version: 1.0.1
-    src: "htmlwidgets/lib/knob/dist"
-    script: jquery.knob.min.js
+    src: "htmlwidgets/lib/knob/js"
+    script: jquery.knob.js

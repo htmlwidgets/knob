@@ -83,8 +83,9 @@
                 for (k in conf) {
                     s.o[k] = conf[k];
                 }
-                s._carve().init();
+                s.init();
                 s._configure()
+                 ._listen()
                  ._draw();
             };
 
@@ -428,6 +429,8 @@
 
                 this.listen();
             } else {
+                this.$c.unbind("mousedown");
+                this.$c.unbind("touchstart");
                 this.$.attr('readonly', 'readonly');
             }
 
