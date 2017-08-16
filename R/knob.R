@@ -1,7 +1,7 @@
 #' @export
 knob <- function(value, min, max, step = 1, 
                  angleOffset = 0, angleArc = 360,
-                 font = NULL, fgColor = NULL, bgColor = NULL,
+                 font = NULL, fgColor = NULL, bgColor = NULL, readOnly = TRUE,
                  width = NULL, height = NULL) {
   
   # create a list containing the options uses to configure the knob
@@ -15,6 +15,7 @@ knob <- function(value, min, max, step = 1,
   x$font <- font
   x$fgColor <- fgColor
   x$bgColor <- bgColor
+  x$readOnly <- readOnly
   
   # create the widget
   htmlwidgets::createWidget('knob', x, width = width, height = height)

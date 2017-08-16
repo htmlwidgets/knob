@@ -20,6 +20,15 @@ HTMLWidgets.widget({
   },
 
   renderValue: function(el, x) {
+    
+    if(x.readOnly === false && HTMLWidgets.shinyMode) {
+      // update shiny value on change
+      x.change = function(v) {
+        Shiny.onInputChange(el.id + "_value", v);
+      };
+      Shiny.onInputChange(el.id + "_value", x.value);    // Return the initial value
+    }
+    
     $(el).find("input")
       .trigger("configure", x)  // forward options to the knob
       .val(x.value)             // set the knob value
